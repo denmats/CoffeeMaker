@@ -3,16 +3,16 @@ package com.epam.exam;
 /**
  * @author Denys Matsuiev
  */
-class HelloCommand implements Command{
+class StatusCommand implements Command{
 
     private final CoffeeMakerHandler coffeeMaker;
 
-    public HelloCommand(CoffeeMakerHandler coffeeMaker) {
+    public StatusCommand(CoffeeMakerHandler coffeeMaker) {
         this.coffeeMaker = coffeeMaker;
     }
 
     @Override
     public void execute() {
-        this.coffeeMaker.hello();
+        this.coffeeMaker.printCurrentIngredients();
     }
 }

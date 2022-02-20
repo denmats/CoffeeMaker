@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 class CoffeeMaker implements CoffeeMakerHandler {
 
-    private static Scanner in = new Scanner(System.in);
+    private static final Scanner in = new Scanner(System.in);
 
     private String userInput;
     private String coffeeMakerOutput;
@@ -31,10 +31,19 @@ class CoffeeMaker implements CoffeeMakerHandler {
         return userInput;
     }
 
+   @Override
+    public void printCurrentIngredients() {
+        for ( Ingredient i : ingredients ) {
+            System.out.println(i);
+        }
+    }
+
     @Override
     public void initCoffeeMakerWithIngredients() {
-
-
+        ingredients.add(new Coffee());
+        ingredients.add(new Water());
+        ingredients.add(new Milk());
+        ingredients.add(new Cocoa());
     }
 
     @Override

@@ -3,12 +3,12 @@ package com.epam.exam;
 /**
  * @author Denys Matsuiev
  */
-class Coffee extends Ingredient {
+class Water extends Ingredient{
 
     private final int quantity;
     private int percent;
 
-    public Coffee() {
+    public Water() {
         super();
         this.quantity = getQuantity();
         this.percent = calculatePercentageOfRemainingOfIngredient(this.quantity);
@@ -16,6 +16,6 @@ class Coffee extends Ingredient {
 
     @Override
     public String toString() {
-        return "Coffee: " + percent + "% " + quantity + "g";
+        return "Water: " + percent + "% " + quantity + "g";
     }
 }
