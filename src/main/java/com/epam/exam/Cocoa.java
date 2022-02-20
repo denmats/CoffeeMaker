@@ -5,10 +5,10 @@ package com.epam.exam;
  */
 class Cocoa extends Ingredient{
     private final int quantity;
-    private int percent;
+    private final int percent;
 
     public Cocoa() {
-        super();
+        super(1700);
         this.quantity = getQuantity();
         this.percent = calculatePercentageOfRemainingOfIngredient(this.quantity);
     }

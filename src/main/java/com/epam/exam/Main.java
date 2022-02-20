@@ -24,6 +24,7 @@ class Main {
 
     private static void performTheCommandFromInput(CoffeeMakerHandler newCoffeeMaker) {
         switch (newCoffeeMaker.getUserInput()){
+//        switch ("MAKE"){
             case "HELLO" -> {
                 HelloCommand helloCommand = new HelloCommand(newCoffeeMaker);
                 UserInterface helloUI = new UserInterface(helloCommand);
@@ -38,7 +39,11 @@ class Main {
                 StatusCommand statusCommand = new StatusCommand(newCoffeeMaker);
                 UserInterface statusUI = new UserInterface(statusCommand);
                 statusUI.invoke();
-
+            }
+            case "MAKE" ->{
+                MakeBeverageCommand makeBeverageCommand = new MakeBeverageCommand(newCoffeeMaker);
+                UserInterface makeUI = new UserInterface(makeBeverageCommand);
+                makeUI.invoke();
             }
             default -> {
                 System.out.println("Unknown Command!");

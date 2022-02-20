@@ -39,6 +39,11 @@ class CoffeeMaker implements CoffeeMakerHandler {
     }
 
     @Override
+    public void makeBeverage() {
+        new Beverage(ingredients,11, 30, 170, 50).makeBeverage();
+    }
+
+    @Override
     public void initCoffeeMakerWithIngredients() {
         ingredients.add(new Coffee());
         ingredients.add(new Water());

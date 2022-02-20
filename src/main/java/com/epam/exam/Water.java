@@ -6,10 +6,10 @@ package com.epam.exam;
 class Water extends Ingredient{
 
     private final int quantity;
-    private int percent;
+    private final int percent;
 
     public Water() {
-        super();
+        super(1500);
         this.quantity = getQuantity();
         this.percent = calculatePercentageOfRemainingOfIngredient(this.quantity);
     }

@@ -12,28 +12,32 @@ abstract class Ingredient {
     private int quantity;
     private int percent;
 
-    public Ingredient() {
+    public Ingredient(int max_capacity) {
         this.name = getClass().getName();
-        this.MAX_CAPACITY = 2000;
+        this.MAX_CAPACITY = max_capacity;
         this.MIN_CAPACITY = 0;
-        this.quantity = generateARandomValueForInitializingIngredientStartingQuantity();
+        this.quantity = setQuantityViaGeneratingRandomValue();
         this.percent = calculatePercentageOfRemainingOfIngredient(this.quantity);
     }
 
-    public Ingredient(int quantity) {
+    public Ingredient(int max_capacity,int quantity) {
         this.name = getClass().getName();
-        this.MAX_CAPACITY = 2000;
+        this.MAX_CAPACITY = max_capacity;
         this.MIN_CAPACITY = 0;
-        this.quantity = quantity;
+        this.quantity = setQuantity(quantity);
         this.percent = calculatePercentageOfRemainingOfIngredient(this.quantity);
     }
 
     public int setQuantityViaGeneratingRandomValue(){
         int randomQuantity = generateARandomValueForInitializingIngredientStartingQuantity();
-        while(!(randomQuantity >= MIN_CAPACITY && randomQuantity <= MIN_CAPACITY)){
+        while(isInTheRange(randomQuantity)){
             randomQuantity = generateARandomValueForInitializingIngredientStartingQuantity();
         }
         return randomQuantity;
+    }
+
+    private boolean isInTheRange(int randomQuantity) {
+        return randomQuantity >= MIN_CAPACITY && randomQuantity <= MIN_CAPACITY;
     }
 
     private int generateARandomValueForInitializingIngredientStartingQuantity(){
@@ -42,7 +46,7 @@ abstract class Ingredient {
     }
 
     public int setQuantity(int quantity){
-        return quantity > 0 ? this.quantity = quantity : 0;
+        return isInTheRange(quantity) ? quantity : 0;
     }
 
     public int getQuantity(){
@@ -53,4 +57,7 @@ abstract class Ingredient {
         return (int) ((double) quantity/MAX_CAPACITY * 100);
     }
 
+    public String getName(){
+        return name;
+    }
 }

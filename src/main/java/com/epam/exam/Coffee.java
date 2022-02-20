@@ -6,11 +6,17 @@ package com.epam.exam;
 class Coffee extends Ingredient {
 
     private final int quantity;
-    private int percent;
+    private final int percent;
 
     public Coffee() {
-        super();
+        super(2000);
         this.quantity = getQuantity();
+        this.percent = calculatePercentageOfRemainingOfIngredient(this.quantity);
+    }
+
+    public Coffee(int quantity) {
+        super(2000, quantity);
+        this.quantity = setQuantity(quantity);
         this.percent = calculatePercentageOfRemainingOfIngredient(this.quantity);
     }
 
